@@ -84,9 +84,13 @@ export function positionStyle(style, position) {
  * ```
  */
 export function showMessage(...args) {
-  const ref = FlashMessageManager.getDefault();
-  if (!!ref) {
-    ref.showMessage(...args);
+  try {
+    const ref = FlashMessageManager.getDefault();
+    if (!!ref) {
+      ref.showMessage(...args);
+    }
+  } catch (err) {
+    console.log("err", err);
   }
 }
 
